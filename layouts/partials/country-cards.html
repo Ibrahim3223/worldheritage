@@ -1,0 +1,107 @@
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    {{ $countries := slice }}
+    {{ range $key, $country := .Site.Params.countries }}
+        {{ $countries = $countries | append (merge $country (dict "key" $key)) }}
+    {{ end }}
+    {{ range sort $countries "order" }}
+
+    <div class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden {{ if eq .status "coming-soon" }}opacity-90{{ end }} hover:-translate-y-2">
+        <!-- Card Header - Country Image -->
+        <div class="h-56 relative overflow-hidden bg-cream">
+            <!-- Country-specific Heritage Image -->
+            {{ if eq .code "de" }}
+                <!-- Germany: Neuschwanstein Castle -->
+                <img src="https://images.unsplash.com/photo-1534313314376-a72289b6181e?w=800&q=80"
+                     alt="Germany Heritage"
+                     class="card-image w-full h-full object-cover"
+                     width="800"
+                     height="600"
+                     loading="lazy">
+            {{ else if eq .code "fr" }}
+                <!-- France: Mont Saint-Michel -->
+                <img src="https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=800&q=80"
+                     alt="France Heritage"
+                     class="card-image w-full h-full object-cover"
+                     width="800"
+                     height="600"
+                     loading="lazy">
+            {{ else if eq .code "it" }}
+                <!-- Italy: Colosseum Rome -->
+                <img src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=800&q=80"
+                     alt="Italy Heritage"
+                     class="card-image w-full h-full object-cover"
+                     width="800"
+                     height="600"
+                     loading="lazy">
+            {{ else if eq .code "es" }}
+                <!-- Spain: Alhambra Granada -->
+                <img src="https://images.unsplash.com/photo-1558642084-fd07fae5282e?w=800&q=80"
+                     alt="Spain Heritage"
+                     class="card-image w-full h-full object-cover"
+                     width="800"
+                     height="600"
+                     loading="lazy">
+            {{ end }}
+
+            <!-- Dark Gradient Overlay for Text Readability -->
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+
+            <!-- Country Name Overlay -->
+            <div class="absolute bottom-0 left-0 right-0 p-6">
+                <h3 class="text-3xl font-serif font-bold text-white">
+                    {{ .name }}
+                </h3>
+            </div>
+
+            <!-- Status Badge -->
+            {{ if eq .status "live" }}
+            <div class="absolute top-4 right-4 bg-sage-500 text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg flex items-center gap-1">
+                <span class="w-2 h-2 bg-white rounded-full animate-pulse"></span>
+                LIVE
+            </div>
+            {{ else }}
+            <div class="absolute top-4 right-4 bg-amber-500 text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg">
+                COMING SOON
+            </div>
+            {{ end }}
+        </div>
+
+        <!-- Card Body -->
+        <div class="p-6">
+            {{ if eq .status "live" }}
+            <!-- Stats with Icons -->
+            <div class="grid grid-cols-2 gap-4 mb-6">
+                <div class="text-center p-3 bg-sage-50 rounded-lg group-hover:bg-sage-100 transition-colors">
+                    <div class="text-2xl font-bold text-forest-700">{{ .sites | lang.FormatNumber 0 }}</div>
+                    <div class="text-xs text-stone mt-1">Heritage Sites</div>
+                </div>
+                <div class="text-center p-3 bg-forest-50 rounded-lg group-hover:bg-forest-100 transition-colors">
+                    <div class="text-2xl font-bold text-forest-700">{{ .unesco }}</div>
+                    <div class="text-xs text-stone mt-1">UNESCO Sites</div>
+                </div>
+            </div>
+
+            <a href="{{ .url }}"
+               class="block w-full text-center px-6 py-4 bg-forest-700 text-white rounded-xl font-bold hover:bg-forest-800 transition-all transform hover:scale-105 shadow-md hover:shadow-xl">
+                Explore {{ .name }} →
+            </a>
+
+            {{ else }}
+            <!-- Coming Soon -->
+            <div class="text-center py-6">
+                <div class="text-4xl font-bold text-charcoal mb-2">{{ .unesco }}</div>
+                <p class="text-stone text-sm mb-1">UNESCO World Heritage Sites</p>
+                <p class="text-amber-600 text-xs font-semibold">
+                    🚀 Launching in 2026
+                </p>
+            </div>
+
+            <button class="w-full px-6 py-4 bg-gray-100 text-gray-400 rounded-xl font-bold cursor-not-allowed">
+                Coming Soon
+            </button>
+            {{ end }}
+        </div>
+    </div>
+
+    {{ end }}
+</div>

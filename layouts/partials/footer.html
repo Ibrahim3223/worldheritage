@@ -1,0 +1,74 @@
+<footer class="bg-forest-900 text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+            <!-- Column 1: About -->
+            <div>
+                <div class="flex items-center space-x-2 mb-4">
+                    <img src="/images/logo.png" alt="WorldHeritage.guide" class="h-8 w-auto">
+                    <span class="font-serif font-bold text-lg text-white">WorldHeritage.guide</span>
+                </div>
+                <p class="text-sm text-sage-300">
+                    Your comprehensive guide to Europe's cultural and natural heritage sites.
+                </p>
+            </div>
+
+            <!-- Column 2: Countries -->
+            <div>
+                <h4 class="text-white font-semibold mb-4">Explore</h4>
+                <ul class="space-y-2 text-sm">
+                    {{ range $key, $country := .Site.Params.countries }}
+                    {{ if eq $country.status "live" }}
+                    <li>
+                        <a href="{{ $country.url }}" class="text-sage-300 hover:text-white transition-colors">
+                            {{ $country.code | upper }} - {{ $country.name }}
+                        </a>
+                    </li>
+                    {{ end }}
+                    {{ end }}
+                </ul>
+            </div>
+
+            <!-- Column 3: Resources -->
+            <div>
+                <h4 class="text-white font-semibold mb-4">Resources</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="/about/" class="text-sage-300 hover:text-white transition-colors">About Us</a></li>
+                    <li><a href="/contact/" class="text-sage-300 hover:text-white transition-colors">Contact</a></li>
+                    <li><a href="/privacy/" class="text-sage-300 hover:text-white transition-colors">Privacy Policy</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 4: Data Sources -->
+            <div>
+                <h4 class="text-white font-semibold mb-4">Data Sources</h4>
+                <ul class="space-y-2 text-sm">
+                    <li>
+                        <a href="https://www.wikidata.org/" target="_blank" rel="noopener" class="text-sage-300 hover:text-white transition-colors">
+                            Wikidata
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://commons.wikimedia.org/" target="_blank" rel="noopener" class="text-sage-300 hover:text-white transition-colors">
+                            Wikimedia Commons
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://whc.unesco.org/" target="_blank" rel="noopener" class="text-sage-300 hover:text-white transition-colors">
+                            UNESCO
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="border-t border-forest-700 pt-8 flex flex-col md:flex-row justify-between items-center">
+            <p class="text-sm text-sage-300">
+                &copy; {{ now.Year }} WorldHeritage.guide. All rights reserved.
+            </p>
+            <p class="text-xs text-sage-400 mt-2 md:mt-0">
+                Built with Hugo &bull; Hosted on Cloudflare Pages
+            </p>
+        </div>
+    </div>
+</footer>

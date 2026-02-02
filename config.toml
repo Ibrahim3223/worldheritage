@@ -1,0 +1,103 @@
+baseURL = "https://worldheritage.guide/"
+languageCode = "en-us"
+title = "WorldHeritage.guide - Discover Europe's Heritage"
+theme = ""
+
+# Build settings
+[build]
+  writeStats = true
+
+# Minify output
+[minify]
+  disableCSS = false
+  disableHTML = false
+  disableJS = false
+  disableJSON = false
+  disableSVG = false
+  disableXML = false
+  minifyOutput = true
+  [minify.tdewolff]
+    [minify.tdewolff.html]
+      keepWhitespace = false
+
+# Sitemap configuration
+[sitemap]
+  changefreq = "weekly"
+  priority = 0.8
+  filename = "sitemap.xml"
+
+# SEO
+enableRobotsTXT = true
+enableGitInfo = false
+
+# Params
+[params]
+  description = "Explore Europe's UNESCO World Heritage Sites and cultural monuments across Germany, France, Italy, and Spain"
+  keywords = "UNESCO, World Heritage, Europe, cultural heritage, monuments, travel guide"
+  author = "WorldHeritage.guide"
+
+  # Social
+  og_image = "/images/og-image.jpg"
+  twitter_card = "summary_large_image"
+
+  # Countries
+  [params.countries]
+    [params.countries.germany]
+      name = "Germany"
+      code = "de"
+      url = "https://de.worldheritage.guide/"
+      status = "live"
+      sites = 10173
+      unesco = 51
+      flag = "🇩🇪"
+      order = 1
+
+    [params.countries.france]
+      name = "France"
+      code = "fr"
+      url = "https://fr.worldheritage.guide/"
+      status = "live"
+      sites = 15248
+      unesco = 45
+      flag = "🇫🇷"
+      order = 2
+
+    [params.countries.italy]
+      name = "Italy"
+      code = "it"
+      url = "#"
+      status = "coming-soon"
+      sites = 0
+      unesco = 58
+      flag = "🇮🇹"
+      order = 3
+
+    [params.countries.spain]
+      name = "Spain"
+      code = "es"
+      url = "#"
+      status = "coming-soon"
+      sites = 0
+      unesco = 49
+      flag = "🇪🇸"
+      order = 4
+
+# Menus
+[[menu.main]]
+  name = "About"
+  url = "/about/"
+  weight = 1
+
+[[menu.main]]
+  name = "Countries"
+  url = "/#countries"
+  weight = 2
+
+[[menu.main]]
+  name = "Contact"
+  url = "/contact/"
+  weight = 3
+
+# Output formats
+[outputs]
+  home = ["HTML", "RSS", "JSON"]

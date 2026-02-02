@@ -1,0 +1,106 @@
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm shadow-soft">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Main navigation">
+        <div class="flex items-center justify-between h-16 md:h-20">
+            <!-- Logo -->
+            <a href="/" class="flex items-center space-x-2 md:space-x-3 group">
+                <img src="/images/logo.png" alt="WorldHeritage.guide" class="h-8 md:h-12 w-auto flex-shrink-0">
+                <div class="flex flex-col min-w-0">
+                    <div class="flex items-center">
+                        <span class="font-serif font-bold text-sm md:text-xl text-forest-800">WorldHeritage</span>
+                        <span class="text-forest-500 font-medium text-sm md:text-xl">.guide</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Desktop Menu -->
+            <ul class="hidden md:flex items-center space-x-8">
+                {{ range .Site.Menus.main }}
+                <li class="{{ if eq .Name "Countries" }}relative nav-item{{ end }}">
+                    <a href="{{ .URL }}" class="text-charcoal hover:text-forest-600 transition-colors font-medium {{ if eq .Name "Countries" }}flex items-center gap-1{{ end }}">
+                        {{ .Name }}
+                        {{ if eq .Name "Countries" }}
+                        <svg class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                        {{ end }}
+                    </a>
+
+                    {{ if eq .Name "Countries" }}
+                    <!-- Dropdown Menu -->
+                    <div class="nav-dropdown">
+                        <div class="nav-dropdown-content">
+                            <div class="p-2">
+                                {{ range sort $.Site.Params.countries "order" }}
+                                <a href="{{ .url }}" class="nav-dropdown-item {{ if eq .status "coming-soon" }}disabled{{ end }}">
+                                    <div class="flex items-center gap-3">
+                                        <span class="text-2xl">{{ .flag }}</span>
+                                        <div>
+                                            <div class="font-semibold text-charcoal text-sm">{{ .name }}</div>
+                                            <div class="text-xs text-stone">{{ .unesco }} UNESCO Sites</div>
+                                        </div>
+                                    </div>
+                                    {{ if eq .status "live" }}
+                                    <span class="px-2 py-1 bg-sage-100 text-sage-700 text-xs font-bold rounded-full">LIVE</span>
+                                    {{ else }}
+                                    <span class="px-2 py-1 bg-gray-100 text-gray-500 text-xs font-bold rounded-full">SOON</span>
+                                    {{ end }}
+                                </a>
+                                {{ end }}
+                            </div>
+                        </div>
+                    </div>
+                    {{ end }}
+                </li>
+                {{ end }}
+            </ul>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden p-2 text-stone hover:text-forest-600 transition-colors" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobile-menu">
+                <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+                <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden border-t border-stone/10 py-4 bg-white">
+            <ul class="space-y-1">
+                {{ range .Site.Menus.main }}
+                <li>
+                    {{ if eq .Name "Countries" }}
+                    <!-- Countries Submenu -->
+                    <button class="mobile-countries-toggle w-full flex items-center justify-between px-4 py-3 text-base font-medium text-charcoal hover:bg-cream hover:text-forest-700 transition-colors rounded-lg">
+                        <span>{{ .Name }}</span>
+                        <svg class="flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 20px; height: 20px; min-width: 20px; min-height: 20px; max-width: 20px; max-height: 20px;">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="mobile-countries-menu hidden pl-4 mt-1 space-y-1">
+                        {{ range sort $.Site.Params.countries "order" }}
+                        <a href="{{ .url }}" class="flex items-center justify-between px-4 py-2 text-sm rounded-lg hover:bg-cream transition-colors {{ if eq .status "coming-soon" }}opacity-60 cursor-not-allowed{{ end }}">
+                            <div class="flex items-center gap-2">
+                                <span class="text-lg">{{ .flag }}</span>
+                                <span class="text-charcoal">{{ .name }}</span>
+                            </div>
+                            {{ if eq .status "live" }}
+                            <span class="px-2 py-0.5 bg-sage-100 text-sage-700 text-xs font-bold rounded-full">LIVE</span>
+                            {{ else }}
+                            <span class="px-2 py-0.5 bg-gray-100 text-gray-500 text-xs font-bold rounded-full">SOON</span>
+                            {{ end }}
+                        </a>
+                        {{ end }}
+                    </div>
+                    {{ else }}
+                    <a href="{{ .URL }}" class="block px-4 py-3 text-base font-medium text-charcoal hover:bg-cream hover:text-forest-700 transition-colors rounded-lg">
+                        {{ .Name }}
+                    </a>
+                    {{ end }}
+                </li>
+                {{ end }}
+            </ul>
+        </div>
+    </nav>
+</header>

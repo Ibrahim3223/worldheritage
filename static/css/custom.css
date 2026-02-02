@@ -1,0 +1,306 @@
+/* Animation Delays */
+.animation-delay-100 {
+    animation-delay: 0.1s;
+}
+
+.animation-delay-200 {
+    animation-delay: 0.2s;
+}
+
+.animation-delay-300 {
+    animation-delay: 0.3s;
+}
+
+/* Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Number Formatting */
+.stat-number {
+    font-variant-numeric: tabular-nums;
+}
+
+/* Custom Scrollbar - Forest theme */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #F5F1E8; /* cream */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #66a572; /* forest-400 */
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #2C5F2D; /* forest-500 */
+}
+
+/* Firefox scrollbar */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #66a572 #F5F1E8;
+}
+
+/* Card Component */
+.card {
+    background: white;
+    border-radius: 0.75rem;
+    box-shadow: 0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 4px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 30px -5px rgba(0, 0, 0, 0.08);
+    transform: translateY(-4px);
+}
+
+.card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.card:hover .card-image {
+    transform: scale(1.05);
+}
+
+/* Prose styling for content pages */
+.prose h1,
+.prose h2,
+.prose h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+    color: #2D2D2D; /* charcoal */
+}
+
+.prose h2 {
+    color: #1A3A1B; /* forest-800 */
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.prose h3 {
+    color: #1d3f1e; /* forest-700 */
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.prose a {
+    color: #2C5F2D; /* forest-500 */
+    text-decoration: underline;
+}
+
+.prose a:hover {
+    color: #1d3f1e; /* forest-700 */
+}
+
+.prose p {
+    margin-bottom: 1rem;
+    line-height: 1.75;
+}
+
+.prose ul,
+.prose ol {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+}
+
+.prose li {
+    margin-bottom: 0.5rem;
+}
+
+.prose blockquote {
+    border-left: 4px solid #97BC62; /* sage-500 */
+    padding-left: 1rem;
+    font-style: italic;
+    color: #8B7E74; /* stone */
+    margin: 1.5rem 0;
+}
+
+/* Focus states for accessibility */
+a:focus-visible,
+button:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px #fff, 0 0 0 4px #2C5F2D;
+}
+
+/* Hero Animated Background */
+.heritage-particles {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* Animated gradient orbs */
+.heritage-particles::before {
+    content: '';
+    position: absolute;
+    width: 800px;
+    height: 800px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(151, 188, 98, 0.9) 0%, rgba(151, 188, 98, 0.6) 35%, rgba(151, 188, 98, 0.3) 65%, transparent 100%);
+    top: -300px;
+    left: -300px;
+    filter: blur(100px);
+    animation: float-orb-1 12s ease-in-out infinite;
+}
+
+.heritage-particles::after {
+    content: '';
+    position: absolute;
+    width: 900px;
+    height: 900px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.5) 0%, rgba(151, 188, 98, 0.7) 25%, rgba(151, 188, 98, 0.4) 55%, transparent 100%);
+    bottom: -350px;
+    right: -350px;
+    filter: blur(100px);
+    animation: float-orb-2 15s ease-in-out infinite;
+}
+
+/* Dramatic floating animations */
+@keyframes float-orb-1 {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: translate(200px, 250px) scale(1.3);
+        opacity: 0.7;
+    }
+}
+
+@keyframes float-orb-2 {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: translate(-220px, -200px) scale(1.35);
+        opacity: 0.8;
+    }
+}
+
+.animation-delay-400 {
+    animation-delay: 0.4s;
+}
+
+/* Search Bar & Country Tabs */
+.country-tab.active {
+    transform: scale(1.05);
+    box-shadow: 0 2px 8px rgba(151, 188, 98, 0.3);
+}
+
+.country-tab:not([disabled]):hover {
+    transform: translateY(-2px);
+}
+
+#global-search:focus {
+    outline: none;
+}
+
+/* Navigation Dropdown */
+.nav-item {
+    position: relative;
+}
+
+.nav-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding-top: 0.75rem;
+    width: 16rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+    z-index: 50;
+}
+
+.nav-dropdown::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 0.75rem;
+    background: transparent;
+}
+
+.nav-dropdown-content {
+    background: white;
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(139, 126, 116, 0.1);
+    overflow: hidden;
+}
+
+.nav-item:hover .nav-dropdown {
+    opacity: 1;
+    visibility: visible;
+}
+
+.nav-dropdown-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    transition: background-color 0.15s ease;
+}
+
+.nav-dropdown-item:hover {
+    background-color: #F5F1E8; /* cream */
+}
+
+.nav-dropdown-item.disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* Screen Reader Only */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+.sr-only:focus,
+.focus\:not-sr-only:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: 1rem 1.5rem;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+}
+
+/* Enhanced Focus Styles for Keyboard Navigation */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 2px solid #2C5F2D; /* forest-500 */
+    outline-offset: 2px;
+    border-radius: 0.25rem;
+}
+
+/* Card links focus state */
+.card:focus-within {
+    outline: 2px solid #2C5F2D;
+    outline-offset: 2px;
+}

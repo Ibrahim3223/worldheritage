@@ -1,0 +1,42 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TouristInformationCenter",
+  "name": "{{ .Site.Title }}",
+  "description": "{{ .Site.Params.description }}",
+  "url": "{{ .Site.BaseURL }}",
+  "logo": "{{ .Site.BaseURL }}logo.svg",
+  "sameAs": [],
+  "areaServed": {
+    "@type": "Place",
+    "name": "Europe"
+  },
+  "knowsAbout": [
+    {
+      "@type": "Thing",
+      "name": "UNESCO World Heritage Sites",
+      "description": "World Heritage Sites in Europe"
+    },
+    {
+      "@type": "Place",
+      "name": "Germany",
+      "description": "{{ index .Site.Params.countries "germany" "unesco" }} UNESCO World Heritage Sites"
+    },
+    {
+      "@type": "Place",
+      "name": "France",
+      "description": "{{ index .Site.Params.countries "france" "unesco" }} UNESCO World Heritage Sites"
+    },
+    {
+      "@type": "Place",
+      "name": "Italy",
+      "description": "{{ index .Site.Params.countries "italy" "unesco" }} UNESCO World Heritage Sites"
+    },
+    {
+      "@type": "Place",
+      "name": "Spain",
+      "description": "{{ index .Site.Params.countries "spain" "unesco" }} UNESCO World Heritage Sites"
+    }
+  ]
+}
+</script>

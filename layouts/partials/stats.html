@@ -1,0 +1,58 @@
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    {{ $totalSites := add .Site.Params.countries.germany.sites .Site.Params.countries.france.sites }}
+    {{ $totalUnesco := add .Site.Params.countries.germany.unesco .Site.Params.countries.france.unesco }}
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 text-center">
+        <!-- Stat 1: Countries -->
+        <div class="p-4 md:p-6">
+            <div class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-sage-400 mb-2">
+                2
+            </div>
+            <div class="text-base md:text-lg text-sage-200">
+                Countries
+            </div>
+            <div class="text-xs md:text-sm text-sage-300 mt-1">
+                (+2 Coming Soon)
+            </div>
+        </div>
+
+        <!-- Stat 2: Total Sites -->
+        <div class="p-4 md:p-6">
+            <div class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-sage-400 mb-2">
+                {{ $totalSites | lang.FormatNumber 0 }}+
+            </div>
+            <div class="text-base md:text-lg text-sage-200">
+                Heritage Sites
+            </div>
+            <div class="text-xs md:text-sm text-sage-300 mt-1">
+                And Counting
+            </div>
+        </div>
+
+        <!-- Stat 3: UNESCO Sites -->
+        <div class="p-4 md:p-6">
+            <div class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-sage-400 mb-2">
+                {{ $totalUnesco }}
+            </div>
+            <div class="text-base md:text-lg text-sage-200">
+                UNESCO Sites
+            </div>
+            <div class="text-xs md:text-sm text-sage-300 mt-1">
+                World Heritage
+            </div>
+        </div>
+
+        <!-- Stat 4: Categories -->
+        <div class="p-4 md:p-6">
+            <div class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-sage-400 mb-2">
+                50+
+            </div>
+            <div class="text-base md:text-lg text-sage-200">
+                Categories
+            </div>
+            <div class="text-xs md:text-sm text-sage-300 mt-1">
+                Castles, Cathedrals & More
+            </div>
+        </div>
+    </div>
+</div>

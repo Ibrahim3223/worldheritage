@@ -1,0 +1,24 @@
+{{ define "title" }}{{ .Title }} | {{ .Site.Title }}{{ end }}
+
+{{ define "main" }}
+
+<article class="py-24 bg-white">
+    <div class="max-w-4xl mx-auto px-4">
+        <header class="mb-12 text-center">
+            <h1 class="text-4xl md:text-5xl font-serif font-bold text-slate-900 mb-4">
+                {{ .Title }}
+            </h1>
+            {{ with .Description }}
+            <p class="text-xl text-gray-600">
+                {{ . }}
+            </p>
+            {{ end }}
+        </header>
+
+        <div class="prose prose-lg prose-slate max-w-none">
+            {{ .Content }}
+        </div>
+    </div>
+</article>
+
+{{ end }}

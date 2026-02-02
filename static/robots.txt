@@ -1,0 +1,10 @@
+# robots.txt for WorldHeritage.guide
+
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://worldheritage.guide/sitemap.xml
+
+# Crawl-delay (optional - be nice to the server)
+Crawl-delay: 1
