@@ -1,7 +1,6 @@
 baseURL = "https://worldheritage.guide/"
 languageCode = "en-us"
 title = "WorldHeritage.guide - Discover Europe's Heritage"
-theme = ""
 
 # Build settings
 [build]
