@@ -64,9 +64,9 @@ enableGitInfo = false
     [params.countries.italy]
       name = "Italy"
       code = "it"
-      url = "#"
-      status = "coming-soon"
-      sites = 0
+      url = "https://it.worldheritage.guide/"
+      status = "live"
+      sites = 7454
       unesco = 58
       flag = "🇮🇹"
       order = 3
